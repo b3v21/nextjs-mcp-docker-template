@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: 'app'
+    container_name: "app"
     command: sleep infinity
     build:
       context: .
@@ -14,20 +14,20 @@ services:
     user: "node"
 
   psql:
-    container_name: 'psql'
-    image: postgres:15
+    container_name: "psql"
+    image: postgres
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
       POSTGRES_DB: db
     volumes:
-      - psql:/var/lib/postgresql/data
+      - psql:/var/lib/postgresql
     ports:
       - "5432:5432"
     restart: always
 
   mcp:
-    container_name: 'mcp'
+    container_name: "mcp"
     command: sleep infinity
     build:
       context: .
